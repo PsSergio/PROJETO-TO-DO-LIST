@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Inter:wght@400;700&family=Londrina+Solid:wght@100;300;400;900&family=Noto+Sans:wght@500;700&family=Paytone+One&family=Roboto:wght@100;300&family=Titillium+Web:wght@200;300&display=swap');
+
+*{
+    font-family: 'Londrina Solid', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+
+header{
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    color: #222222;
+}
+
+header h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+
+header h2{
+    font-weight: 300;
+}
+
+header h2::after{
+    display: block;
+    margin: 20px auto;
+    content: "";
+    width: 460px;
+    height: 2px;
+    background-color: #888888;
+}
+
+/* Section */
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Write task container */
+
+.write-task-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#msg-input{
+    display: block;
+    position: absolute;
+    color: #888888;
+    margin-right: 260px;
+    font-size: 20px;
+}
+
+#write-task-input{
+    padding: 15px 230px 15px 20px;
+    border-radius: 40px;
+    border: 2px solid #D9D9D9;
+    background-color: #D9D9D9;
+}
+
+#write-task-input:focus ~ #msg-input,
+#write-task-input:valid ~ #msg-input{
+    display: none;
+}
+
+#send-task-btn{
+    width: 45.5px;
+    height: 45.5px;
+    border-radius: 50%;
+    font-size: 2em;
+    background-color: #D9D9D9;
+    border: none;
+    margin-left: 20px;
+}
+
+/* Task */
+
+.task-container{
+    margin-top: 40px;
+}
+
+.task-content{
+    display: flex;
+    background-color: #D9D9D9;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    width: 435px;
+    height: 70px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.task-content:hover{
+    background-color: #c2c2c2;
+}
+
+.task-content div{
+    margin: 10px 10px;
+}
+
+.task-name-container{
+    position: relative;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    color: #222222;
+}
+
+.task-name{
+    position: absolute;
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.task-name-checked{
+    position: absolute;
+    font-size: 20px;
+    margin-left: 10px;
+    font-style: normal;
+    text-decoration: none;
+    color: #558f1a;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.task-buttons button{
+    margin-left: 2px;
+    padding: 5px;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    filter: brightness(80%);
+}
+
+.task-buttons button i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 .8px .8px black);
+}
+
+.edit-task-btn{
+    background-color: #5FDFFB;
+}
+
+.checked-task-btn{
+    background-color: #96FF2E;
+}
+
+.remove-task-btn{
+    background-color: #EA6565;
+}
+
+/* Theme Input */
+
+#theme-input{
+    position: absolute;
+    left: -9999px;
+}
+
+#theme-label{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#theme-label::before, #theme-label::after{
+    content: "";
+    transition: all 0.3s ease;
+}
+
+#theme-label::before{
+    display: inline-block;
+    width: 3.8em;
+    height: 2em;
+    background-color: #D9D9D9;
+    border-radius: 1em;
+}
+
+#theme-label::after{
+    position: absolute;
+    top: 0.085em;
+    left: 0.08em;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: #1399B7;
+    border-radius: 100%;
+}  
+
+#theme-input:checked + #theme-label::before{
+    background-color: #212121;
+}
+
+#theme-input:checked + #theme-label::after{
+    left: 1.93em;
+}
+
+@keyframes abrirModal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20px, -5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.modals-container{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000ad;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    z-index: 2;
+}
+
+.edit-task-modal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 800px;
+    animation: abrirModal 0.5s;
+    z-index: 999;
+}
+
+h1#edit-task-title{
+    color: #888888;
+    font-weight: 500;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.edit-task-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#label-edit-task-modal{
+    color: #888888;
+    position: absolute;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+#edit-task-input{
+    padding: 10px 250px 10px 20px;
+    border-radius: 40px;
+    border: 2px solid #D9D9D9;
+    background-color: #D9D9D9;
+    font-size: 20px;
+}
+
+#edit-task-input:focus ~ #label-edit-task-modal,
+#edit-task-input:valid ~ #label-edit-task-modal{
+    display: none;
+}
+
+button#edit-task-modal-btn{
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    border: none;
+    background-color: #77CB23;
+    padding: 5px 60px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+button#close-modal{
+    position: relative;
+    left: 370px;
+    top: 10px;
+    border: none;
+    background-color: transparent;
+    font-size: 30px;
+}
+
+/* Dark Theme */
+
+.dark,
+.dark header,
+.dark .edit-task-modal-container,
+.dark #edit-task-title{
+    background-color: #313131;
+    color: white;
+}
+
+.dark section .task-content{
+    background-color: #212121;
+}
+
+.dark .task-name{
+    color: white;
+}
+
+.dark #send-task-btn{
+    background-color: #212121;
+    color: white;
+}
+
+.dark .task-buttons button{
+    filter:brightness(100%);
+}
+
+.dark .task-name-checked{
+    color: #558f1a;
+    font-style: italic;
+    text-decoration: line-through;
+}

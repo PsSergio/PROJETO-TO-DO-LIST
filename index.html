@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="dark">
+    <header>
+        <h1>To Do List</h1>
+        <h2>By Paulo Sergio</h2>
+    </header>
+    <section>
+        <div class="write-task-container">
+            <input type="text" id="write-task-input" required maxlength="25">
+            <label for="write-task-input" id="msg-input">Write your new task</label>
+            <button id="send-task-btn">+</button>
+            
+        </div>
+        <div class="task-container">
+            <!-- <div class="task-content">
+                <div class="task-name-container">
+                    <p class="task-name task-name-checked">Task 1</p>
+                </div>
+                <div class="task-buttons">
+                    <button class="edit-task-btn"><i class='bx bxs-pencil' ></i></button>
+                    <button class="checked-task-btn"><i class='bx bx-check' ></i></button>
+                    <button class="remove-task-btn"><i class='bx bx-x' ></i></button>
+                </div>
+            </div> -->
+        </div>
+        <div class="input-theme-container">
+            <label for="theme-text" id="theme-label-text">White Theme</label>
+            <input type="checkbox" name="theme-input" id="theme-input">
+            <label for="theme-input" id="theme-label"></label>
+        </div>
+        <div class="modals-container">
+            <div class="edit-task-modal-container">
+                <button id="close-modal"><i class='bx bx-x' id="close-icon"></i></button>
+                <h1 id="edit-task-title">Rewrite your task</h1>
+                <div class="edit-task-input-container">
+                    <input type="text" name="edit-task-input" id="edit-task-input" required maxlength="25">
+                    <label for="edit-task-input" id="label-edit-task-modal">Rewrite your task</label>
+                </div>
+                <button id="edit-task-modal-btn">Done!</button>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
